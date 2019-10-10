@@ -1,0 +1,4 @@
+.env
+.docker/db/data
+.docker/redis/data
+.idea
