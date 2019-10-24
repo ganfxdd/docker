@@ -10,7 +10,7 @@ volumes:
 
 
 services:
-  app:  # 実際のWebアプリケーションを起動するコンテナ
+  app:
     restart: always
     build: .
     command: gunicorn run:app --config guniconf.py
@@ -30,7 +30,7 @@ services:
       CELERY_BROKER_URL: redis://redis:6379/0
       CELERY_RESULT_BACKEND: redis://redis:6379/0
 
-#  worker:  # ジョブを走らせるコンテナ
+#  worker: 
 #    build: .
 #    command: celery worker -B -l info -A run.celery
 #    depends_on:
@@ -48,14 +48,14 @@ services:
 #      CELERY_BROKER_URL: redis://redis:6379/0
 #      CELERY_RESULT_BACKEND: redis://redis:6379/0
 
-  redis:  # ジョブを非同期で動かすために必要
+  redis:
     image: redis
     ports:
       - 6379:6379
     volumes:
       - .docker/redis/data:/data
 
-  nginx:  # プロキシサーバー
+  nginx:
     restart: always
     build:
       context: .docker/nginx
@@ -70,7 +70,7 @@ services:
     networks:
       - nginx_network
 
-  db: # データベース用サーバー(Postgresql使用)
+  db:
     restart: always
     image: postgres:10.4
     ports:

@@ -2,7 +2,7 @@ include .env
 
 .DEFAULT_GOAL=build
 
-# ENVごとにコマンドやcomposeファイル使い分けたい時に使う
+
 #ifeq ($(FLASK_ENV), production)
 #	DC = COMPOSE_FILE=docker-compose.production.yml docker-compose
 #else
@@ -25,7 +25,7 @@ CD_NGINX = cd .docker/nginx
 CD_REDIS = cd .docker/redis
 
 
-# コンテナ操作コマンド
+
 .PHONY: build up build_up restart force_restart down logs clean test
 build:
 	$(DC) build
@@ -48,7 +48,7 @@ clean:
 test:
 	$(APP) pytest
 
-# DB関連コマンド
+
 .PHONY: db_migrate db_upgrade db_downgrade
 db_migrate:
 	@$(FLASK) db migrate

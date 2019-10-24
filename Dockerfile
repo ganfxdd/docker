@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 RUN mkdir -p /var/www/app
 WORKDIR /var/www/app
 
-# 必要なpipパッケージはここに追加していく
+
 RUN pip install --upgrade pip \
     && pip install \
     	flask \
@@ -20,6 +20,7 @@ RUN pip install --upgrade pip \
     	ipython \
     	celery \
     	Flask-Cors\
-    	pytest
+    	pytest \
+		psycopg2
 
 COPY . .

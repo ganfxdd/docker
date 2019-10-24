@@ -13,7 +13,7 @@ def init_db(_app: Flask) -> None:
     """
     DBの初期化・マイグレーション
     """
-    force_auto_coercion()  # パスワードを暗号化してDBに保存するために必要
+    force_auto_coercion() 
     db.init_app(_app)
     Migrate(_app, db)
 

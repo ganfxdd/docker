@@ -1,4 +1,4 @@
-# dockerコンテナに入れたくない物をここに書いていく
+
 .docker
 .circleci
 .pytest_cache
